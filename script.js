@@ -22,7 +22,7 @@ function DLGoogleSheet() {
   }
  
 function showInfo(results) {
-	data = results.data;
+	encodedData = results.data;
 }
 
 function toGeoJSON(data) {
@@ -92,7 +92,7 @@ function displayData(data) {
 
 
 
-encodedData = DLGoogleSheet();
+DLGoogleSheet();
 
 data = toGeoJSON(encodedData);
 
