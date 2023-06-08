@@ -1,6 +1,6 @@
 var public_spreadsheet_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7gM8gporkXhMJaSXHf2TnuQZ_pzp5T74IMpTE3J8iLjaSOCVnAuSCj7vz6iu0DB7E4rXvyMVw7NVE/pub?output=csv"
 
-
+var encodedData = [];
 
 // Display the leaflet map
 const map = L.map('map').setView([63.42, 10.43], 13);
@@ -22,7 +22,7 @@ function DLGoogleSheet() {
   }
  
 function showInfo(results) {
-	var encodedData = results.data;
+	encodedData = results.data;
 }
 
 function toGeoJSON(data) {
