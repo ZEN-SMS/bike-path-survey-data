@@ -36,6 +36,12 @@ html, body {
 }
 
 
+.slider {
+	display: block;
+	margin: 20px auto;
+}
+
+
 /* Mise en page */
 
 /* Map */
@@ -56,3 +62,4 @@ html, body {
 #map:hover {
   cursor : crosshair;
 }
+
