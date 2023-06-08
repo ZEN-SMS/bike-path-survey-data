@@ -11,9 +11,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-	<button class="button" id="displayButton" onclick="displayData(data)" disabled="true">Display data</button>
-	<button class="button" id="downloadButton" onclick="downloadGeoJSON(data)" disabled="true">Download GeoJSON</button>
-
+	<header>
+		<button class="button" id="displayButton" onclick="displayData(data)" disabled="true">Display data</button>
+		<button class="button" id="downloadButton" onclick="downloadGeoJSON(data)" disabled="true">Download GeoJSON</button>
+	<div id="slider">
+		<input type="range" min="1" max="30" value="2" class="slider" id="daySlider">
+		<p>Number of days: <span id="sliderValue"></span></p>
+	</div>
+	</header>
 	<div id="map-container">
 		<div id="map"></div>
     </div>
