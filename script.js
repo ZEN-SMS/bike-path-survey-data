@@ -1,7 +1,7 @@
 var public_spreadsheet_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7gM8gporkXhMJaSXHf2TnuQZ_pzp5T74IMpTE3J8iLjaSOCVnAuSCj7vz6iu0DB7E4rXvyMVw7NVE/pub?output=csv"
 
 var encodedData = [];
-var data = {};
+
 
 // Display the leaflet map
 const map = L.map('map').setView([63.42, 10.43], 13);
@@ -24,7 +24,7 @@ function DLGoogleSheet() {
  
 function showInfo(results) {
 	encodedData = results.data;
-	data = toGeoJSON(encodedData);
+	displayData(toGeoJSON(encodedData));
 }
 
 function toGeoJSON(data) {
@@ -74,6 +74,8 @@ function toGeoJSON(data) {
 
 
 function downloadGeoJSON(data) {
+	console.log(data);
+
 	// Create a data URI from the GeoJSON content
 	const dataURI = 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
 
@@ -87,17 +89,15 @@ function downloadGeoJSON(data) {
 function displayData(data) {
 	L.geoJSON(data, {
 		style: function(feature) {
+			const day = document.getElementById("daySlider").value;
 			var horodateur = feature.properties.Horodateur;
-			var currentDate = new Date();
 			var horodateurDate = new Date(horodateur);
-
-			horodateurDate.setHours(0, 0, 0, 0);
-
-			if (
-				horodateurDate.getMonth()+2 >= currentDate.getDate() &&
-				horodateurDate.getDate() === currentDate.getMonth()+1 &&
-				horodateurDate.getFullYear() === currentDate.getFullYear()
-			) {
+			const d = horodateurDate.getDate()
+			const m = horodateurDate.getMonth()
+			horodateurDate.setMonth(d-1);
+			horodateurDate.setDate(m+1);
+			
+			if (new Date() - horodateurDate < 86400000*day) {
 				return { color: "red" };
 			} else {
 				return { color: "blue" };
@@ -106,7 +106,14 @@ function displayData(data) {
 	}).addTo(map);
 };
 
+
+
+
+
 DLGoogleSheet();
 
-
+document.getElementById("daySlider").oninput = function() {
+	document.getElementById("sliderValue").innerHTML = this.value;
+	displayData(data);
+}
 
