@@ -110,10 +110,11 @@ function displayData(data) {
 
 
 
+//[{Horodateur: "02/06/2023 11:46:54", "Path": "prefernottosay;36-65;atabKolq~@Za@\{@Hc@Fk@Do@BaD@]wAuAyAaB{AuBW]Bq@?y@Fm@f@kDPwAYqAEQk@kCnA_HF[D_@GGDU|@cF\mB@KO{COw@AS?KA[GKcA_BeAaB@Oj@wJFqARcDLqBNqBFaAFs@RuDHiATsDEE?WC_@K]@E@G@W@E@K][{@cAW[yCqDSWZ}CRgBB]Dq@@}BAgACoAEkACaA_@{LCg@Ce@Ca@Gk@Ku@Q_AMg@WeAYw@Me@g@mAm@uAb@iBQYQKg@@Ca@Kw@Y}AU{@[u@KSwAaC}@yAOOIEOMOOSURmATkAVw@^w@Z_AbAgDTb@r@{@`CeCBE;work;1-2 ganger i uken;kun sommer;" }, {Horodateur: "07/06/2023 11:48:03", "Path": "female;65plus;cvcbKctk~@F~BFzBTBD?PBn@BZBt@JzCd@P@|@JB?B?^BNLJHFNzE~NDLZw@b@gAb@_AdAoBtAvAH?HIHIDGLLHHFFpAtAj@fAr@rAzA`DvBwDNWvHmK@I?MNQNSTYLEJHPt@RXXB^Wf@k@j@w@BBBF@DlBlLDNBHDFFBZKlAcANKHAJBBDFNBJ@F@BBRDXFZBLBBLB`A]pAYd@I@^^Ir@DV^LvAAhABfARvARpA@B@FB`@ELq@hAQRBNBN@HDFV@BH?JCLWTKPAl@Bx@F\HV\p@c@j@OUMNUz@CT?N?XDVAj@;shop;3-4 ganger i uken;hele året;q}cbKmz}~@A\a@lHc@vEQ~C?BEt@IhGEj@]|GC^YrFIpAS~Ci@rHcBjOStASbAm@pBOj@CXI~@Af@@zAAT?RAPa@jCO|@_@vB_@pAYbBQhACn@SfBE^kAhJEHMHCHCHUtACLCLFVFl@?LTNLD@@OfAKn@OfAS|AGj@Ep@MhBMxBMfBSpDQrCGdBA^MlFEhAGdBG~AQpEI`BKfC_@pJMxCt@Fp@fDBDHh@DhEB~@Fp@N`@p@ZNNFTDVBZ@ZFt@Jb@P^PZWxAAFIjA@vBl@dK@`@Bn@@l@CzCK`AKVRp@h@lBl@pBhArDNp@Nz@Hx@FfAJrAX~AJx@Bn@r@`EPx@^bBhApENj@lDxLJ`@JVLVj@nBDJ\lA~@fDRv@rA`FJ^FTBJlAnEJ`@jBdHXdAHNTPCJAPCZLLHBE|AFHLPBLf@~BFVLn@PjAHHJBD?BHh@bBf@z@PNADOr@Gr@IhCBvBCdBDt@L^R^DHPd@FP@TDKrBLd@LGRNA^MJ@Xd@n@^f@?Vn@DPTPh@n@Qp@a@dCc@xCEd@El@Cj@?FC\GjAIjA@@JFD?CVBB@BDFp@bAOz@MAA^?B?|@`@Jd@Nl@Rf@p@PVx@pA;work;3-4 ganger i uken;kun vinter;" }];
 DLGoogleSheet();
 
 document.getElementById("daySlider").oninput = function() {
-	document.getElementById("sliderValue").innerHTML = this.value;
+	document.getElementById("sliderValue").innerHTML = this.value + " days";
 	displayData(data);
 }
 
