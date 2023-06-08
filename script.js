@@ -22,10 +22,10 @@ function DLGoogleSheet() {
   }
  
 function showInfo(results) {
-	data = results.data;
+	// data = results.data;
 }
 
-function dataToGeoJSON(data) {
+function toGeoJSON(data) {
 	var features = [];
 	
 	for (let i = 0; i < data.length; i +=1) {
@@ -64,6 +64,8 @@ function dataToGeoJSON(data) {
 		type: 'FeatureCollection',
 		features: features
 	};
+	document.getElementById("displayButton").disabled = false;
+	document.getElementById("downloadButton").disabled = false;
 	return geojson;
 }
 
@@ -82,10 +84,15 @@ function downloadGeoJSON(data) {
 	link.click();
 }
 
+function displayData(data) {
+	L.geoJSON(data).addTo(map);
+};
 
 
-DLGoogleSheet();
-document.getElementById("downloadButton").addEventListener("click", function() {
-	downloadGeoJSON(dataToGeoJSON(data))}
-);
+
+
+
+encodedData = DLGoogleSheet();
+
+data = toGeoJSON(encodedData);
 
