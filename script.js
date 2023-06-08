@@ -85,7 +85,25 @@ function downloadGeoJSON(data) {
 }
 
 function displayData(data) {
-	L.geoJSON(data).addTo(map);
+	L.geoJSON(data, {
+		style: function(feature) {
+			var horodateur = feature.properties.Horodateur;
+			var currentDate = new Date();
+			var horodateurDate = new Date(horodateur);
+
+			horodateurDate.setHours(0, 0, 0, 0);
+
+			if (
+				horodateurDate.getMonth()+1 === currentDate.getDate() &&
+				horodateurDate.getDate() === currentDate.getMonth()+1 &&
+				horodateurDate.getFullYear() === currentDate.getFullYear()
+			) {
+				return { color: "red" };
+			} else {
+				return { color: "blue" };
+			}
+		}
+	}).addTo(map);
 };
 
 DLGoogleSheet();
