@@ -94,7 +94,7 @@ function displayData(data) {
 			horodateurDate.setHours(0, 0, 0, 0);
 
 			if (
-				horodateurDate.getMonth()+1 === currentDate.getDate() &&
+				horodateurDate.getMonth()+2 >= currentDate.getDate() &&
 				horodateurDate.getDate() === currentDate.getMonth()+1 &&
 				horodateurDate.getFullYear() === currentDate.getFullYear()
 			) {
