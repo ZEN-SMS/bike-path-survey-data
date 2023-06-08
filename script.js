@@ -22,7 +22,7 @@ function DLGoogleSheet() {
   }
  
 function showInfo(results) {
-	encodedData = results.data;
+	var encodedData = results.data;
 }
 
 function toGeoJSON(data) {
