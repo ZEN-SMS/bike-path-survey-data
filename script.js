@@ -15,6 +15,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 // Download the Google Sheet with the surveys responses
 function DLGoogleSheet() {
+	console.log("debut DLgsheet");
 	Papa.parse(public_spreadsheet_url, {
 		download: true,
 		header: true,
@@ -23,11 +24,13 @@ function DLGoogleSheet() {
   }
  
 function showInfo(results) {
+	console.log("show info",results);
 	encodedData = results.data;
 	data = toGeoJSON(encodedData);
 }
 
 function toGeoJSON(data) {
+	console.log(data);
 	var features = [];
 	
 	for (let i = 0; i < data.length; i +=1) {
@@ -90,8 +93,9 @@ function displayData(data) {
 	L.geoJSON(data).addTo(map);
 };
 
-
+console.log("before DL");
 DLGoogleSheet();
+console.log("after DL");
 
 
 
