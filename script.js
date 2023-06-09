@@ -2,6 +2,7 @@ var public_spreadsheet_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ
 
 var encodedData = [];
 var data = [];
+var layer = [];
 
 
 // Display the leaflet map
@@ -89,7 +90,7 @@ function downloadGeoJSON(data) {
 
 function displayData(data) {
 	map.removeLayer(layer);
-	var layer = L.geoJSON(data, {
+	layer = L.geoJSON(data, {
 		style: function(feature) {
 			const day = document.getElementById("daySlider").value;
 			var horodateur = feature.properties.Horodateur;
