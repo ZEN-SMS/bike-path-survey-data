@@ -88,7 +88,8 @@ function downloadGeoJSON(data) {
 }
 
 function displayData(data) {
-	L.geoJSON(data, {
+	map.removeLayer(layer);
+	var layer = L.geoJSON(data, {
 		style: function(feature) {
 			const day = document.getElementById("daySlider").value;
 			var horodateur = feature.properties.Horodateur;
@@ -106,7 +107,6 @@ function displayData(data) {
 		}
 	}).addTo(map);
 };
-
 
 
 
