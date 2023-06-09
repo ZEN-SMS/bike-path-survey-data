@@ -66,7 +66,6 @@ function toGeoJSON(data) {
 		type: 'FeatureCollection',
 		features: features
 	};
-	document.getElementById("displayButton").disabled = false;
 	document.getElementById("downloadButton").disabled = false;
 	return geojson;
 }
