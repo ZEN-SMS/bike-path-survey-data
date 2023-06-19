@@ -110,6 +110,8 @@ function displayData(data) {
 			horodateurDate.setMonth(d-1);
 			horodateurDate.setDate(m+1);
 			
+			console.log(new Date(), horodateurDate);
+			
 			if (new Date() - horodateurDate < 86400000*day) {
 				return { color: "red" };
 			} else {
