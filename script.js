@@ -41,10 +41,12 @@ function toGeoJSON(data) {
 		var gender = split[0];
 		var age = split[1];
 		
-		var repSize = 4;
-		if (split[6] == "yes" || split[6] == "no") {
-			repSize = 5;
-		}
+		var repSize = 5;
+		if (split[6] != "yes" && split[6] != "no") {
+			for (let k = 0; k < (split.length - 3)/5; k+=1) {
+			split.splice(5*k+6,0,"");
+			};
+		};
 		
 		for (let j = 0; j < (split.length - 3)/repSize; j+=1) {
 			
@@ -77,6 +79,7 @@ function toGeoJSON(data) {
 		features: features
 	};
 	document.getElementById("downloadButton").disabled = false;
+	console.log(geojson);
 	return geojson;
 }
 
