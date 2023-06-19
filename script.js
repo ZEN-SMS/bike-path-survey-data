@@ -40,9 +40,15 @@ function toGeoJSON(data) {
 		
 		var gender = split[0];
 		var age = split[1];
-		for (let j = 0; j < (split.length - 3)/5; j+=1) {
+		
+		var repSize = 4;
+		if (split[6] == "yes" || split[6] == "no") {
+			repSize = 5;
+		}
+		
+		for (let j = 0; j < (split.length - 3)/repSize; j+=1) {
 			
-			path = polyline.decode(split[5*j+2]);
+			path = polyline.decode(split[repSize*j+2]);
 			for (let k = 0; k < path.length; k+=1) {
 				path[k].reverse(); 
 			};
@@ -57,10 +63,10 @@ function toGeoJSON(data) {
 					Horodateur: horodateur,
 					Gender: gender,
 					Age: age,
-					Purpose: split[5*j+3],
-					Frequency: split[5*j+4],
-					Season: split[5*j+5],
-					Electric_bike: split[5*j+6],
+					Purpose: split[repSize*j+3],
+					Frequency: split[repSize*j+4],
+					Season: split[repSize*j+5],
+					Electric_bike: split[repSize*j+6],
 				}
 			};
 		features.push(feature);
