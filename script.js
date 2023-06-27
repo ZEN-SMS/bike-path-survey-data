@@ -68,7 +68,7 @@ function toGeoJSON(data) {
 					Purpose: split[repSize*j+3],
 					Frequency: split[repSize*j+4],
 					Season: split[repSize*j+5],
-					Electric_bike: split[repSize*j+6],
+					Bike_type: split[repSize*j+6],
 				}
 			};
 		features.push(feature);
