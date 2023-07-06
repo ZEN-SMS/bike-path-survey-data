@@ -42,7 +42,7 @@ function toGeoJSON(data) {
 		var age = split[1];
 		
 		var repSize = 5;
-		if (split[6] != "yes" && split[6] != "no") {
+		if (split[6] != "yes" && split[6] != "no" && split[6] != "regular" && split[6] != "electric" && split[6] != "shared") {
 			for (let k = 0; k < (split.length - 3)/5; k+=1) {
 			split.splice(5*k+6,0,"");
 			};
